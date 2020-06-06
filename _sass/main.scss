@@ -1,3 +1,60 @@
+$primary-color: #222;
+$accent-color: rgba(230, 209, 94, 0.925);
+$text-color: #dd3272;
+
+
+body {
+    background-color: $primary-color;
+    color: #fbb;
+}
+
 .current {
-    color: green;
+    color: $text-color !important;
+    font-weight: 1000;
+}
+
+.main {
+    width: 80%;
+    margin: 0 auto;
+    
+}
+
+@media only screen and (max-width: 500px) {
+
+    .nav-bar .resume {
+        text-align: left !important;
+    }
+
+    .main {
+        width: 95%;
+    }
+
+}
+
+.nav-bar {
+    padding: 10pt 0;
+
+    .resume {
+        margin: 10px 0 0;
+        text-align: right;
+    }
+    
+    a {
+        font-weight: 1000;
+        font-size: large;
+        color: $accent-color;
+        text-decoration: none;
+        padding: 2px;
+        margin: 10px 3px;
+    }
+
+    a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    a.active {
+        background-color: #4CAF50;
+        color: white;
+    }
 }
