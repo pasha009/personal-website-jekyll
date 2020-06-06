@@ -1,17 +1,12 @@
-$primary-color: #222;
-$accent-color: rgba(230, 209, 94, 0.925);
-$text-color: #dd3272;
-
+$text-color: #04ca9f ;
+$background-color: #101;
 
 body {
-    background-color: $primary-color;
-    color: #fbb;
+    background-color: $background-color;
+    color: $text-color;
 }
 
-.current {
-    color: $text-color !important;
-    font-weight: 1000;
-}
+
 
 .main {
     width: 80%;
@@ -32,29 +27,52 @@ body {
 }
 
 .nav-bar {
+    $active-color: orange;
+    $inactive-color: gold;
+    $hover-color: rgba(255, 255, 255, 0.856);
+    $resume: lavenderblush;
+    $resume-hover: red;
+
+
     padding: 10pt 0;
+    min-width: 280px;
+    margin-bottom: 25px;
+    
+    .normal {
+        float: left;
+    }
 
     .resume {
-        margin: 10px 0 0;
-        text-align: right;
+        float: right;
+
+        a {
+            padding: 5px 10px;
+            color: $resume !important;
+            border-radius: 4px;
+            font-weight: bolder;
+        }
+
+        a:hover {
+            color: $resume-hover !important;
+        }
+    }
+
+    .current {
+        color: $active-color !important;
+        font-weight: 200;
     }
     
     a {
         font-weight: 1000;
         font-size: large;
-        color: $accent-color;
+        color: $inactive-color;
         text-decoration: none;
         padding: 2px;
         margin: 10px 3px;
     }
 
     a:hover {
-        background-color: #ddd;
-        color: black;
+        color: $hover-color;
     }
 
-    a.active {
-        background-color: #4CAF50;
-        color: white;
-    }
 }
