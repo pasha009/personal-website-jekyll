@@ -1,11 +1,13 @@
-$text-color: #04ca9f ;
+$text-color: white ;
 $background-color: #101;
 
 body {
     background-color: $background-color;
     color: $text-color;
+    font-family: 'Roboto', sans-serif;
+    min-width: 300px;
+    font-weight: bolder;
 }
-
 
 
 .main {
@@ -14,7 +16,7 @@ body {
     
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
 
     .nav-bar .resume {
         text-align: left !important;
@@ -22,6 +24,15 @@ body {
 
     .main {
         width: 95%;
+    }
+
+    table {
+        width: 90% !important;
+    }
+
+    .home-row-1 .dp {
+        float: none !important;
+        width: 90% !important;
     }
 
 }
@@ -33,9 +44,10 @@ body {
     $resume: lavenderblush;
     $resume-hover: red;
 
-
+    display: block;
+    height: auto;
     padding: 10pt 0;
-    min-width: 280px;
+    // min-width: 300px;
     margin-bottom: 25px;
     
     .normal {
@@ -63,8 +75,7 @@ body {
     }
     
     a {
-        font-weight: 1000;
-        font-size: large;
+        font-weight: 800;
         color: $inactive-color;
         text-decoration: none;
         padding: 2px;
@@ -76,3 +87,4 @@ body {
     }
 
 }
+
