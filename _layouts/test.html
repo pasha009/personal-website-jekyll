@@ -10,4 +10,33 @@ layout: default
         </h3>
     {% endfor %}
 </div>
+
+
 {{ content }}
+
+
+<canvas id="myChart"></canvas>
+<script>
+    var x = [];
+    var y = [];
+    {% for item in page.data %}
+        x.push(new Date({{ item.timestamp }} * 1000));
+        y.push(({{ item.score }} / {{page.max_score}} * 10).toFixed(2))
+    {% endfor %}
+    
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: x,
+            datasets: [{
+                label: 'Score',
+                data: y,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 2
+            }]
+        },
+        options: {% include chart_options.js %},
+    });
+</script>

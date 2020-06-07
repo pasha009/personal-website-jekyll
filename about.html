@@ -30,7 +30,7 @@ title: About
     {% for category in site.test_categories %}
       {% assign tests = site.tests | where:"category", category.name %}
       {% if tests.size > 0 %}
-        <tr ><td class="gap"></td></tr>
+        <tr><td class="gap" colspan="2"></td></tr>
         <tr class="category-row">
           <td colspan="2">
             <a href="{{ category.url }}">{{ category.name | upcase }}</a>
