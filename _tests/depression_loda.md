@@ -3,6 +3,7 @@ name: Depression Loda Lassan
 website: http://www.localhost.com
 category: Depression
 added_on: 1591528247
+min_score: 0
 max_score: 11
 data:
   - score: 1.8

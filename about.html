@@ -41,9 +41,9 @@ title: About
         {% for test in tests %}
           {% assign test_score = 0 %}
           {% for past_result in test.data %}
-            {% assign score = past_result.score | times: 1.0 %}
-            {% assign score = score | divided_by: test.max_score %}
-            {% assign score = score | times: 10 %}
+            {% assign score = past_result.score | times: 1.0 | minus: test.min_score %}
+            {% assign diff = test.max_score | minus: test.min_score %}
+            {% assign score = score | divided_by: diff | times: 10 %}
             {% assign test_score = test_score | plus: score %}
           {% endfor %}
           {% assign test_score = test_score | divided_by: test.data.size %}

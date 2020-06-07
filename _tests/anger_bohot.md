@@ -3,6 +3,7 @@ name: Anger Bohot
 website: http://www.localhost.com
 category: Anger
 added_on: 1591529999
+min_score: 0
 max_score: 14
 data:
   - score: 12.53

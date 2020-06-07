@@ -21,9 +21,18 @@ layout: default
     var y = [];
     {% for item in page.data %}
         x.push(new Date({{ item.timestamp }} * 1000));
-        y.push(({{ item.score }} / {{page.max_score}} * 10).toFixed(2))
+        y.push(({{ item.score }}).toFixed(2))
     {% endfor %}
-    
+    {% assign suggestedMin = page.min_score %}
+    {% assign suggestedMax = page.max_score %}
+
+    {% assign line_color = site.data.purple %}
+    {% for category in site.test_categories %}
+        {% if category.name == page.category %}
+            {% assign line_color = site.data.chart_colors[category.color] %}
+        {% endif %}
+    {% endfor %}
+        
     var ctx = document.getElementById('myChart');
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -32,8 +41,8 @@ layout: default
             datasets: [{
                 label: 'Score',
                 data: y,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: '{{ line_color.bg }}',
+                borderColor: '{{ line_color.bd }}',
                 borderWidth: 2
             }]
         },

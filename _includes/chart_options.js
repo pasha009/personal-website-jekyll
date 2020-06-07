@@ -2,8 +2,8 @@
     scales: {
         yAxes: [{
             ticks: {
-                suggestedMax: 10,
-                suggestedMin: 0,
+                suggestedMax: {{ suggestedMax }},
+                suggestedMin: {{ suggestedMin }},
             },
             gridLines: { color: "#333" },
         }],
