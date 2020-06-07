@@ -5,3 +5,47 @@ layout: default
 <h2>{{ page.description }}  </h2>
 <p> {{ page.quote.text }}   </p>
 <p> {{ page.quote.quotee }} </p>
+
+<canvas id="myChart"></canvas>
+
+<script> 
+    var i = 0;
+    
+    var k = 'rgba(255, 255, 255, '
+    function random_rgba() {
+        i = (i + 1) % 2;
+        if (i == 1) return k + '1)'
+        var ret = k + '0.2)'
+        var o = Math.round, r = Math.random, s = 255;
+        k = 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ','
+        return ret;
+    }
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            datasets: [
+                {% assign tests = site.tests | where: "category", page.name %}
+                {% for test in tests %}
+                    {
+                        label: '{{ test.name }}',
+                        fill: true,
+                        data: [
+                            {% for t in test.data %}
+                                {
+                                    x: new Date({{ t.timestamp }} * 1000),
+                                    y: (({{ t.score }} - {{test.min_score}}) / ({{ test.max_score }} - {{test.min_score}}) * 10).toFixed(2)
+                                },
+                            {% endfor %}
+                        ],
+                        borderColor: random_rgba(),
+                        backgroundColor: random_rgba(),
+                    },
+                {% endfor %}
+            ]
+        },
+        {% assign suggestedMin = 0 %}
+        {% assign suggestedMax = 10 %}
+        options: {% include chart_options.js %},
+    });
+</script>
