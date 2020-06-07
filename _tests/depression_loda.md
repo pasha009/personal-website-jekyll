@@ -1,13 +1,13 @@
 ---
-name: Authentic Happiness Inventory
+name: Depression Loda Lassan
 website: http://www.localhost.com
-category: Happiness
+category: Depression
 added_on: 1591528247
-max_score: 7
+max_score: 11
 data:
-  - score: 2.8
+  - score: 1.8
     timestamp: 1591528247
-  - score: 4.2
+  - score: 3.2
     timestamp: 1591528421
 ---
 A banana is an edible fruit – botanically a berry – produced by several kinds

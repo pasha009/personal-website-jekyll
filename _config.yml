@@ -1,7 +1,7 @@
 collections:
   test_categories:
     output: true
-    sort_by: added_on
+    sort_by: name
   tests:
     output: true
     sort_by: added_on

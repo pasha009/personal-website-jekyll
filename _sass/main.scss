@@ -1,12 +1,21 @@
 $text-color: white ;
-$background-color: #000;
+$background-color: #101;
 
 body {
     background-color: $background-color;
     color: $text-color;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif, 'Roboto';
     min-width: 300px;
-    font-weight: bolder;
+    font-weight: medium;
+
+    a {
+        text-decoration: none;
+        color: yellow;
+    }
+
+    a:hover {
+        color: whitesmoke;
+    }
 }
 
 
@@ -30,7 +39,7 @@ body {
         width: 90% !important;
     }
 
-    .home-row-1 .dp {
+    .about-row-1 .dp {
         float: none !important;
         width: 90% !important;
     }
@@ -49,6 +58,7 @@ body {
     padding: 10pt 0;
     // min-width: 300px;
     margin-bottom: 25px;
+    font-weight: 700;
     
     .normal {
         float: left;
@@ -61,7 +71,6 @@ body {
             padding: 5px 10px;
             color: $resume !important;
             border-radius: 4px;
-            font-weight: bolder;
         }
 
         a:hover {
@@ -71,11 +80,10 @@ body {
 
     .current {
         color: $active-color !important;
-        font-weight: 200;
+        font-weight: 400;
     }
     
     a {
-        font-weight: 800;
         color: $inactive-color;
         text-decoration: none;
         padding: 2px;
