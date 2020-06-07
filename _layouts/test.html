@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<h1>{{ page.name }}</h1>
+<p>{{ page.added_on | date_to_string }}</p>
+<div>
+    {% for item in page.data %}
+        <h3>
+            {{ item.score }} - {{ item.timestamp | date_to_string }}
+        </h3>
+    {% endfor %}
+</div>
+{{ content }}

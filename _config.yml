@@ -1,18 +1,22 @@
 collections:
-  authors:
+  test_categories:
     output: true
+    sort_by: added_on
+  tests:
+    output: true
+    sort_by: added_on
 
 defaults:
   - scope:
       path: ""
-      type: "authors"
+      type: "test_categories"
     values:
-      layout: "author"
+      layout: "test_category"
   - scope:
       path: ""
-      type: "posts"
+      type: "tests"
     values:
-      layout: "post"
+      layout: "test"
   - scope:
       path: ""
     values:
