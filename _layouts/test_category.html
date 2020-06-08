@@ -1,12 +1,54 @@
 ---
 layout: default
 ---
+
 <h1>{{ page.name }} </h1>
-<h2>{{ page.description }}  </h2>
-<p> {{ page.quote.text }}   </p>
-<p> {{ page.quote.quotee }} </p>
+
+<div class="quote">
+    <blockquote>{{ page.quote.text }}</blockquote>
+    <cite>{{ page.quote.quotee }}</cite>
+</div>
 
 <canvas id="myChart"></canvas>
+<div class="about-row-2 ">
+  <h3>{{page.name}} Test Scores: </h3>
+  <table class="about-test-table test-category-table">
+    <tr class="header-row">
+      <td>Test Name</td>
+      <td>Avg. Score (max 10)</td>
+    </tr>
+      {% assign tests = site.tests | where:"category", page.name %}
+      {% if tests.size > 0 %}
+        {% assign total_score = 0 %}
+        {% assign total_tests = tests.size %}
+        {% for test in tests %}
+          {% assign test_score = 0 %}
+          {% for past_result in test.data %}
+            {% assign score = past_result.score | times: 1.0 | minus: test.min_score %}
+            {% assign diff = test.max_score | minus: test.min_score %}
+            {% assign score = score | divided_by: diff | times: 10 %}
+            {% assign test_score = test_score | plus: score %}
+          {% endfor %}
+          {% assign test_score = test_score | divided_by: test.data.size %}
+          {% assign total_score = total_score | plus: test_score %}
+          <tr>
+            <td>
+              <a href="{{ test.url }}">{{ test.name }}</a>
+            </td>
+            <td>{{ test_score | round: 2 }}</td>
+          </tr>
+        {% endfor %}
+        <tr class="average-row">
+          <td>Average</td>
+          <td>
+            {{ total_score | divided_by: total_tests | round: 2 }}
+          </td>
+        </tr>
+      {% endif %}
+  </table>
+</div>
+  
+
 
 <script> 
     var i = 0;
@@ -29,7 +71,7 @@ layout: default
                 {% for test in tests %}
                     {
                         label: '{{ test.name }}',
-                        fill: true,
+                        fill: false,
                         data: [
                             {% for t in test.data %}
                                 {

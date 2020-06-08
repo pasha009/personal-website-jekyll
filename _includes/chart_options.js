@@ -5,7 +5,7 @@
                 suggestedMax: {{ suggestedMax }},
                 suggestedMin: {{ suggestedMin }},
             },
-            gridLines: { color: "#333" },
+            gridLines: { color: "#555" },
         }],
         xAxes: [{
             type: 'time',
@@ -13,7 +13,7 @@
             time: {
                 unit: 'quarter',
             },
-            gridLines: { color: "#333" },
+            gridLines: { color: "#555" },
         }]
     }
 }
