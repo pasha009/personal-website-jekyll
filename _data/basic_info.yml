@@ -23,7 +23,10 @@
   value: Bachelor's Degree
 
 - key: Course
-  value: Computer Science
+  value: Computer Science and Engineering
+
+- key: College
+  value: IIT Bombay
 
 - key: Relationship status
   value: Single forever

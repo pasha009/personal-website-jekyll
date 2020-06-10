@@ -4,14 +4,14 @@ title: About
 ---
 
 <div class="about-row-1">
-  <h2>Basic Information: </h2>
+  <h2>Basic Information : </h2>
   
   <img class="dp" src="{{ site.data.files.dp }}" alt="Rejoice that you don't have to see that">
   
   <table>
     {% for row in site.data.basic_info %}
     <tr>
-      <td>{{ row.key }}: </td>
+      <td>{{ row.key }} </td>
       <td>{{ row.value }}</td>
     </tr>
     {% endfor %}
@@ -22,7 +22,7 @@ title: About
 
 
 <div class="about-row-2">
-  <h2>Emotional Test Scores: </h2>
+  <h2>Emotional Test Scores : </h2>
 
   
   <table class="about-test-table">
@@ -71,6 +71,10 @@ title: About
 
 <div id="bigFiveRadarContainer">
   <h2> Personality Type: </h2>
+  <p>
+  <a href="https://bigfive-test.com/result/5eddf7a03868eb00086dfd69">Test Source</a>
+  <br>
+  </p>
   <canvas id="bigFiveRadar"></canvas>
   {% for x in site.data.bigfive %}
     <h3>{{ x.category }} : </h3>
@@ -80,6 +84,19 @@ title: About
 
 
 <script>
+
+  function shuffleArray(bg, bd) {
+    for (var i = bg.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = bg[i];
+      bg[i] = bg[j];
+      bg[j] = temp;
+
+      temp = bd[i];
+      bd[i] = bd[j];
+      bd[j] = temp;
+    }
+  }
 
   bg = []
   bd = []
@@ -119,19 +136,23 @@ title: About
     },
     options: {
         scales: {
-            xAxes: [{
-                ticks: {
-                  min: 0,
-                  max: mx,
-                }
-            }],
-            yAxes: [{
+            
+          xAxes: [{
+              gridLines: {
+                color: 'rgba(255, 255, 255, 0.1)',
+              },
               ticks: {
-                fontColor: '#eee',
-                fontSize: 15,
-                mirror: true
+                min: 0,
+                max: mx,
               }
-            }]
+          }],
+          yAxes: [{
+            ticks: {
+              fontColor: '#eee',
+              fontSize: 14,
+              mirror: true
+            }
+          }]
         }
       },
     });
@@ -158,6 +179,7 @@ title: About
       dt.push({{ s.score }})
     {% endfor %}
 
+    shuffleArray(bg, bd)
     mkChart(elem, '{{ t.category }}', lb, dt, 20, bg, bd)
   {% endfor %}
 
