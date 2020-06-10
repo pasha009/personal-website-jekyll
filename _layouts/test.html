@@ -17,7 +17,7 @@ layout: default
     {% assign suggestedMin = page.min_score %}
     {% assign suggestedMax = page.max_score %}
 
-    {% assign line_color = site.data.purple %}
+    {% assign line_color = site.data.chart_colors.purple %}
     {% for category in site.test_categories %}
         {% if category.name == page.category %}
             {% assign line_color = site.data.chart_colors[category.color] %}

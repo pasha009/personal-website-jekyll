@@ -1,0 +1,75 @@
+- category: Neuroticism
+  score: 89
+  subclasses:
+    - category: Anxiety
+      score: 13
+    - category: Anger
+      score: 14
+    - category: Depression
+      score: 16
+    - category: Self-Consciousness
+      score: 17
+    - category: Immoderation
+      score: 15
+    - category: Vulnerability
+      score: 14
+- category: Extraversion
+  score: 57
+  subclasses:
+    - category: Friendliness
+      score: 9
+    - category: Gregariousness
+      score: 8
+    - category: Assertiveness
+      score: 7
+    - category: Activity Level
+      score: 11
+    - category: Excitement-Seeking
+      score: 12
+    - category: Cheerfulness
+      score: 10
+- category: Openness to Experience
+  score: 85
+  subclasses:
+    - category: Imagination
+      score: 17
+    - category: Artistic Interests
+      score: 10
+    - category: Emotionality
+      score: 11
+    - category: Adventurousness
+      score: 18
+    - category: Intellect
+      score: 13
+    - category: Liberalism
+      score: 16
+- category: Agreeableness
+  score: 78
+  subclasses:
+    - category: Trust
+      score: 11
+    - category: Morality
+      score: 18
+    - category: Altruism
+      score: 9
+    - category: Cooperation
+      score: 11
+    - category: Modesty
+      score: 18
+    - category: Sympathy
+      score: 11
+- category: Conscientiousness
+  score: 66
+  subclasses:
+    - category: Self-Efficacy
+      score: 11
+    - category: Orderliness
+      score: 9
+    - category: Dutifulness
+      score: 14
+    - category: Achievement-Striving
+      score: 14
+    - category: Self-Discipline
+      score: 7
+    - category: Cautiousness
+      score: 11

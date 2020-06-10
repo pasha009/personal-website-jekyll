@@ -20,8 +20,11 @@ title: About
 </div>
 
 
+
 <div class="about-row-2">
   <h2>Emotional Test Scores: </h2>
+
+  
   <table class="about-test-table">
     <tr class="header-row">
       <td>Test Name</td>
@@ -65,4 +68,98 @@ title: About
     {% endfor %}
   </table>
 </div>
+
+<div id="bigFiveRadarContainer">
+  <h2> Personality Type: </h2>
+  <canvas id="bigFiveRadar"></canvas>
+  {% for x in site.data.bigfive %}
+    <h3>{{ x.category }} : </h3>
+    <canvas id="b5{{ x.category }}"></canvas>
+  {% endfor %}
+</div>
+
+
+<script>
+
+  bg = []
+  bd = []
+
   
+  bg.push("{{ site.data.chart_colors.red.bg }}")
+  bd.push("{{ site.data.chart_colors.red.bd }}")
+  
+  bg.push("{{ site.data.chart_colors.blue.bg }}")
+  bd.push("{{ site.data.chart_colors.blue.bd }}")
+
+  bg.push("{{ site.data.chart_colors.yellow.bg }}")
+  bd.push("{{ site.data.chart_colors.yellow.bd }}")
+
+  bg.push("{{ site.data.chart_colors.cyan.bg }}")
+  bd.push("{{ site.data.chart_colors.cyan.bd }}")
+
+  bg.push("{{ site.data.chart_colors.purple.bg }}")
+  bd.push("{{ site.data.chart_colors.purple.bd }}")
+
+  bg.push("{{ site.data.chart_colors.green.bg }}")
+  bd.push("{{ site.data.chart_colors.green.bd }}")
+  
+  
+  function mkChart(ctx, name, labels, data, mx, bg, bd) {
+    return new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: name,
+        backgroundColor: bg,
+        borderColor: bd,
+        borderWidth: 1,
+        data: data,
+      }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                ticks: {
+                  min: 0,
+                  max: mx,
+                }
+            }],
+            yAxes: [{
+              ticks: {
+                fontColor: '#eee',
+                fontSize: 15,
+                mirror: true
+              }
+            }]
+        }
+      },
+    });
+  }
+
+  b5Labels = []
+  b5Data = []
+
+  {% for t in site.data.bigfive %}
+    b5Labels.push("  {{ t.category }}")
+    b5Data.push({{ t.score }})
+  {% endfor %}
+
+
+  var ctx = document.getElementById('bigFiveRadar');
+  mkChart(ctx, 'Big Five', b5Labels, b5Data, 120, bg, bd)
+
+  {% for t in site.data.bigfive %}
+    var elem = document.getElementById("b5{{ t.category }}")
+    lb = []
+    dt = []
+    {% for s in t.subclasses %}
+      lb.push("  {{ s.category }}")
+      dt.push({{ s.score }})
+    {% endfor %}
+
+    mkChart(elem, '{{ t.category }}', lb, dt, 20, bg, bd)
+  {% endfor %}
+
+  
+</script>
